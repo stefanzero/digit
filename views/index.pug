@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div(id="main" class=color)
+    h1= title
+    p(class="welcome") Welcome to #{title}
+    p
+        span(class="your") Your color is #{color}
+    table
+        caption Color Distribution
+        thead
+            th color
+            th number
+        tbody
+            tr
+                td red
+                td #{colors.red}
+            tr
+                td blue
+                td #{colors.blue}
+
