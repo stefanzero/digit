@@ -1,14 +1,14 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0 0;
   padding: 0 0;
+  color: #fff;
 }
 
 div#main {
   margin: 0 0;
   padding: 2em 2em;
-  height: 400px;
 }
 .red {
   background-color: red;
@@ -16,30 +16,41 @@ div#main {
 .blue {
   background-color: blue;
 }
+p {
+  margin: 0 2em;
+}
 .welcome {
-    font-size: 2em;
-    margin: 1em 0;
+  font-size: 2em;
+  margin: 1em 0;
 }
 .your {
-    margin: 0.5em 0;
-    padding: 0.4em 0.4em;
-    background-color: #ddd;
+  margin: 0.5em 0;
+  padding: 0.4em 0.4em;
+  background-color: #ddd;
+  color: #000;
+  border: 1px solid black;
+}
+p.text {
+  max-width: 800px;
+  whitespace: pre-wrap;
 }
 table {
-    padding: 2em 2em;
-    border-collapse: collapse;
-    border: 1px solid black;
-    background-color: #ddd;
+  margin: 2em 0;
+  padding: 2em 2em;
+  border-collapse: collapse;
+  border: 1px solid black;
+  background-color: #ddd;
+  color: #000;
 }
 th, td {
-    border: 1px solid black;
-    padding: 0.5em 1.0em;
+  border: 1px solid black;
+  padding: 0.5em 1.0em;
 }
 caption {
-    padding: 0.5em 0;
-    text-align: center;
-    font-weight: bold;
-    background-color: #ddd;
+  padding: 0.5em 0;
+  text-align: center;
+  font-weight: bold;
+  background-color: #ddd;
 }
 
 a {

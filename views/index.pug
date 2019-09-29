@@ -6,6 +6,27 @@ block content
     p(class="welcome") Welcome to #{title}
     p
         span(class="your") Your color is #{color}
+    div(class="instructions")
+        h2 Landing Page A/B Color test
+        p(class="text")
+            | This web page is designed to be an A/B test to measure the "relative success"
+            | of a blue vs. a red backgound color.&nbsp;
+            | When a new visitor lands on this page,&nbsp;
+            | there is an 85% chance they will be assigned "blue"
+            | and 15% chance they will be assigned "red". &nbsp;
+            | If the same web browser visits the page again,&nbsp;
+            | the color will not change unless the user clears the browser "cache" for this URL.
+        h3 Server Storage of Color Distribution
+        p(class="text") If the new color is chosen by a random probability&nbsp;
+            | that the next value is 85% blue or 15% red, then the&nbsp;
+            | cumulative color distribution may deviate from the&nbsp;
+            | average due to the "random walk" nature of probabilties.&nbsp;
+            | To better ensure the color distribution is closer to a 85% / 15% ratio,&nbsp;
+            | the server stores the cumulative color distribution in a SQLITE database,&nbsp;
+            | and choses the next color so as to maintain the distribution of colors&nbsp;
+            | to approximately 85% blue and 15% red. &nbsp;
+            | So for every 20 new entries, 17 will be blue and 3 will be red. &nbsp;
+            | At any given number of total colors, the number of red will be Math.floor(0.15 * total).
     table
         caption Color Distribution
         thead

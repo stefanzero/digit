@@ -107,30 +107,22 @@ class DB {
     const colors = await this.readColorTable();
     const total = colors.red + colors.blue;
     let nextColor = '';
-    /*
-     * Assign initial color to the one which has the highest target fraction
-     */
-    if (total === 0) {
-      if (redFraction < 0.5) {
-        colors.blue = 1;
-        nextColor = 'blue';
-      } else {
-        colors.red = 1;
-        nextColor = 'red';
-      }
+    let i = total + 1;
+    let red;
+    let blue;
+    if (redFraction < 0.5) {
+      red = Math.floor(i * redFraction);
+      blue = i - red;
     } else {
-      /*
-       * Assign subsequent colors to the one that will maintain the desired target fraction
-       */
-      const targetRed = redFraction * total;
-      const targetBlue = (1 - redFraction) * total;
-      if (Math.abs(targetRed - colors.red) > Math.abs(targetBlue - colors.blue)) {
-        colors.red += 1;
-        nextColor = 'red';
-      } else {
-        colors.blue += 1;
-        nextColor = 'blue';
-      }
+      blue = Math.floor(i * (1 - redFraction));
+      red = i - blue;
+    }
+    if (red > colors.red) {
+      colors.red += 1;
+      nextColor = 'red';
+    } else {
+      colors.blue += 1;
+      nextColor = 'blue';
     }
     await this.updateColorTable(colors);
     return nextColor;
